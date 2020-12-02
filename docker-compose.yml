@@ -16,7 +16,7 @@ services:
 
     volumes:
       - ./postfix/config:/config
-      - mailqueue:/usr/src/app/queue
+      - mailqueue:/queue
       - opendkim_socket:/var/run/opendkim/opendkim.sock
       - ./ssl:/etc/ssl/certs
 
