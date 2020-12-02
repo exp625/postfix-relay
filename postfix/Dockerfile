@@ -12,7 +12,6 @@ RUN postconf -d | grep mail_version
 
 COPY ./supervisord.conf /etc/supervisor.d/supervisord.conf
 COPY ./docker-entrypoint.sh /entrypoint.sh
-COPY ./postfix.sh /postfix.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 CMD /usr/bin/supervisord -c /etc/supervisor.d/supervisord.conf
