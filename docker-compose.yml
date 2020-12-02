@@ -29,6 +29,7 @@ services:
       - ./keys:/tmp/keys
     environment:
       - DOMAIN
+      - TARGET_IP
 
 volumes:
   mailqueue:
