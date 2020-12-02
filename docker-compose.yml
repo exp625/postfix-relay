@@ -25,7 +25,7 @@ services:
       context: ./opendkim
     volumes:
       - ./opendkim/config:/config
-      - ./keys:/etc/opendkim/keys
+      - ./keys:/tmp/keys
       - opendkim_socket:/var/run/opendkim/opendkim.sock
     environment:
       - DOMAIN
