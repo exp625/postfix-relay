@@ -9,7 +9,7 @@ RUN apk upgrade --update \
  && echo "*.* -/dev/stdout" >> /etc/syslog.conf
 
 COPY ./supervisord.conf /etc/supervisor.d/supervisord.conf
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 CMD /usr/bin/supervisord -c /etc/supervisor.d/supervisord.conf
