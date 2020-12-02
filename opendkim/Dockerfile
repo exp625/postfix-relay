@@ -8,8 +8,7 @@ RUN apk upgrade --update \
  && mkdir /etc/supervisor.d/ \
  && echo "*.* -/dev/stdout" >> /etc/syslog.conf
 
-COPY ./opendkim.conf /etc/opendkim/opendkim.conf
-COPY ./configsupervisord.conf /etc/supervisor.d/supervisord.conf
+COPY ./supervisord.conf /etc/supervisor.d/supervisord.conf
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["./docker-entrypoint.sh"]

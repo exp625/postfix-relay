@@ -12,7 +12,7 @@ services:
       - TARGET_SMPT_PORT
       - TARGET_IP
     ports:
-      - ${SMPT_PORT}:25"
+      - ${SMPT_PORT}:25
 
     volumes:
       - ./postfix/config:/config
