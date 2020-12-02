@@ -21,5 +21,4 @@ done
 
 cp -R /tmp/keys /etc/opendkim/keys
 chown -R  opendkim:opendkim /etc/opendkim/keys
-chown -R  opendkim:opendkim /var/run/opendkim
 exec "$@"
