@@ -1,4 +1,5 @@
 compatibility_level=2
+maillog_file=/var/log/postfix.log
 
 myhostname = ${HOSTNAME}
 myorigin = ${DOMAIN}
