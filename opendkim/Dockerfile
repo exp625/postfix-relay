@@ -1,5 +1,4 @@
 FROM alpine:latest
-RUN adduser -S opendkim && groupadd opendkim
 RUN apk upgrade --update \
  && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
  && echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
