@@ -1,7 +1,7 @@
 #!/bin/sh
 for config in /config/*
 do
-  envsubst < $config > /etc/opendkim$config
+  envsubst < $config > /etc/opendkim/${config##*/}
 done
 
 
