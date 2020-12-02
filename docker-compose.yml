@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./postfix
+    environment:
+      - DOMAIN
+      - HOSTNAME
+      - SMPT_PORT
+      - TARGET_DOMAIN
+      - TARGET_SMPT_PORT
+      - TARGET_IP
+    ports:
+      - ${SMPT_PORT}:25"
+
+    volumes:
+      - ./postfix/config:/config
+      - mailqueue:/usr/src/app/queue
+      - opendkim_socket:/var/run/opendkim/opendkim.sock
+      - ./ssl:/etc/ssl/certs
+
+  opendkim:
+    build:
+      context: ./opendkim
+    volumes:
+      - ./opendkim/config:/config
+      - opendkim_socket:/var/run/opendkim/opendkim.sock
+    environment:
+      - DOMAIN
+
+volumes:
+  mailqueue:
+  opendkim_socket:
