@@ -17,16 +17,16 @@ services:
     volumes:
       - ./postfix/config:/config
       - mailqueue:/queue
-      - opendkim_socket:/var/run/opendkim
       - ./ssl:/etc/ssl/certs
 
   opendkim:
     build:
       context: ./opendkim
+    ports:
+      - 8891:8891
     volumes:
       - ./opendkim/config:/config
       - ./keys:/tmp/keys
-      - opendkim_socket:/var/run/opendkim
     environment:
       - DOMAIN
 

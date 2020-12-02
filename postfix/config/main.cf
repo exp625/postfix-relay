@@ -63,5 +63,5 @@ unverified_recipient_reject_reason = Address lookup failure
 
 milter_default_action = accept
 milter_protocol = 6
-smtpd_milters = unix:/var/run/opendkim/opendkim.sock
-non_smtpd_milters = unix:/var/run/opendkim/opendkim.sock
+smtpd_milters = inet:opendkim:8891
+non_smtpd_milters = inet:opendkim:8891
