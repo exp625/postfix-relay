@@ -24,6 +24,8 @@ message_size_limit = 41943040
 readme_directory = no
 recipient_delimiter = +
 
+smtp_header_checks = pcre:/etc/postfix/RelayHeader
+
 smtpd_tls_eccert_file  = /etc/ssl/certs/${DOMAIN}/cert.pem
 smtpd_tls_eckey_file = /etc/ssl/certs/${DOMAIN}/key.key
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt

@@ -1,2 +1,5 @@
-/^From\s+<(.*?)@${TARGET_DOMAIN}>/ REPLACE From: <$1@${DOMAIN}>
-/^\s*User-Agent:/ REPLACE Received: ${HOSTNAME}
+/^Received:.*with ESMT/         IGNORE
+/^X-Originating-IP:/            IGNORE
+/^X-Mailer:/                    IGNORE
+/^Mime-Version:/                IGNORE
+/^User-Agent:/                  IGNORE
