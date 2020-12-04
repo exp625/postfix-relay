@@ -1,1 +1,2 @@
-/^From\s+<(.*?)@${TARGET_DOMAIN}>/ REPLACE Message-Id: <$1@${DOMAIN}>
+/^From\s+<(.*?)@${TARGET_DOMAIN}>/ REPLACE From: <$1@${DOMAIN}>
+/^\s*User-Agent:/ REPLACE Received: ${HOSTNAME}
