@@ -17,7 +17,7 @@ services:
     volumes:
       - ./postfix/config:/config
       - mailqueue:/queue
-      - ./ssl:/etc/ssl/certs
+      - ./ssl:/etc/ssl/certs/${DOMAIN}
 
   opendkim:
     build:
