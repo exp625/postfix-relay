@@ -25,9 +25,12 @@ readme_directory = no
 recipient_delimiter = +
 
 smtp_tls_CApath = /etc/ssl/certs
+smtpd_tls_eccert_file  = /etc/ssl/certs/cert.pem
+smtpd_tls_eckey_file = /etc/ssl/certs/key.key
+smtpd_tls_CAfile = /etc/ssl/certs/
+
 smtp_tls_loglevel = 1
 smtp_tls_security_level = may
-smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 smtpd_banner = $myhostname ESMTP $mail_name
 smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination,
 smtpd_relay_restrictions = permit_mynetworks, defer_unauth_destination,
@@ -38,14 +41,11 @@ smtpd_sasl_security_options = noanonymous, noplaintext
 smtpd_sasl_tls_security_options = noanonymous
 smtpd_sasl_type = cyrus
 smtpd_tls_auth_only = yes
-smtpd_tls_eccert_file  = /etc/ssl/certs/cert.pem
-smtpd_tls_eckey_file = /etc/ssl/certs/key.key
-smtpd_tls_CAfile = /etc/ssl/certs/
 smtpd_tls_mandatory_ciphers = high
 smtpd_tls_mandatory_exclude_ciphers = aNULL, MD5,
 smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3,
 smtpd_tls_security_level = may
-smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtpd_tls_session_cache_database = btree:/etc/postfix/smtpd_scache
 tls_preempt_cipherlist = yes
 
 smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
@@ -56,7 +56,7 @@ tls_high_cipherlist = EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA256:
 tls_ssl_options = NO_COMPRESSION
 smtp_tls_mandatory_protocols = !SSLv2, !SSLv3
 smtp_tls_protocols =!SSLv2,!SSLv3
-smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtp_tls_session_cache_database = btree:/etc/postfix/smtp_scache
 
 lmtp_host_lookup = native
 smtpd_delay_reject = yes
