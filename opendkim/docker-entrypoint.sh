@@ -8,11 +8,11 @@ done
 if [ ! -d "/tmp/keys/${DOMAIN}" ]; then
     mkdir -p /tmp/keys/${DOMAIN}
     cd /tmp/keys/${DOMAIN}
-    opendkim-genkey -s mail -d ${DOMAIN}
-    chown opendkim:opendkim mail.private
+    opendkim-genkey -s default -d ${DOMAIN}
+    chown opendkim:opendkim default.private
 fi
 
 
-cp -R /tmp/keys /etc/opendkim/keys
+cp -R /tmp/keys /etc/opendkim
 chown -R  opendkim:opendkim /etc/opendkim/keys
 exec "$@"
