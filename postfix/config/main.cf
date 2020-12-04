@@ -6,6 +6,8 @@ myorigin = ${DOMAIN}
 mynetworks = hash:/etc/postfix/NetworkTable
 mydestination = ${DOMAIN}
 
+smtp_header_checks = regexp:/etc/postfix/RelayHeader
+
 local_transport = smtp:[${TARGET_DOMAIN}]:${TARGET_SMPT_PORT}
 local_recipient_maps =
 
@@ -38,6 +40,7 @@ smtpd_sasl_type = cyrus
 smtpd_tls_auth_only = yes
 smtpd_tls_eccert_file  = /etc/ssl/certs/cert.pem
 smtpd_tls_eckey_file = /etc/ssl/certs/key.key
+smtpd_tls_CAfile = /etc/ssl/certs/
 smtpd_tls_mandatory_ciphers = high
 smtpd_tls_mandatory_exclude_ciphers = aNULL, MD5,
 smtpd_tls_mandatory_protocols = !SSLv2, !SSLv3,
