@@ -6,8 +6,6 @@ myorigin = ${DOMAIN}
 mynetworks = hash:/etc/postfix/NetworkTable
 mydestination = ${DOMAIN}
 
-smtp_header_checks = regexp:/etc/postfix/RelayHeader
-
 local_transport = smtp:[${TARGET_DOMAIN}]:${TARGET_SMPT_PORT}
 local_recipient_maps =
 
@@ -34,8 +32,8 @@ smtpd_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 smtp_tls_loglevel = 1
 smtp_tls_security_level = may
 smtpd_banner = $myhostname ESMTP $mail_name
-smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination,
-smtpd_relay_restrictions = permit_mynetworks, defer_unauth_destination,
+smtpd_recipient_restrictions = reject_unknown_recipient_domain, reject_unverified_recipient, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
+smtpd_relay_restrictions = reject_unknown_recipient_domain, reject_unverified_recipient, permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
 smtpd_sasl_auth_enable = yes
 
 smtpd_sasl_path = smtpd
